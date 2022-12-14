@@ -1,0 +1,26 @@
+{
+  "name": "team-profile-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LDudrey/Team-Profile-Website.git"
+  },
+  "author": "LDudrey",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LDudrey/Team-Profile-Website/issues"
+  },
+  "homepage": "https://github.com/LDudrey/Team-Profile-Website#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  }
+}
