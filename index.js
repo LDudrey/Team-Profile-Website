@@ -4,11 +4,12 @@ const Profile = require("./lib/Employee");
 
 const profile = new Profile();
 
-const questions = [
+inquirer
+.prompt([
     {
-        name: 'name',
+        name: 'mgrName',
         type: 'input',
-        message: 'What is the employees name?',
+        message: 'What is the Managers name?',
     },
     {
         name: 'id',
@@ -20,7 +21,7 @@ const questions = [
         type: 'input',
         message: 'What is the employees email address?',
     },
-];
+]);
 
 function writeToFile(answers) {
     const readMeContent = generate(answers);
