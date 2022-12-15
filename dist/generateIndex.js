@@ -1,4 +1,12 @@
-// Function generates markdown for README
+// https://www.stanleyulili.com/node/node-modules-import-and-use-functions-from-another-file/
+const Employee = require("./lib/Employee");
+const Manager = require("./lib/Manager");
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
+
+
+
+// Function generates HTML file
 // https://stackoverflow.com/questions/35803959/template-literals-with-nested-backticks-in-es6
 function generateIndex(answers) {
     return `<!DOCTYPE html>
