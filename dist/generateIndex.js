@@ -1,11 +1,3 @@
-// https://www.stanleyulili.com/node/node-modules-import-and-use-functions-from-another-file/
-const Employee = require("./lib/Employee");
-const Manager = require("./lib/Manager");
-const Engineer = require("./lib/Engineer");
-const Intern = require("./lib/Intern");
-
-
-
 // Function generates HTML file
 // https://stackoverflow.com/questions/35803959/template-literals-with-nested-backticks-in-es6
 function generateIndex(answers) {
@@ -21,14 +13,23 @@ function generateIndex(answers) {
         <title>Team Profiles</title>
     </head>
     <body>
-      
-    
-
-    
+    <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">${answers.name}</h5>
+      <h3 class="card-text">${answers.role}</h3>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">ID: ${answers.id}</li>
+      <li class="list-group-item"><a href="mailto:${answers.email}" class="card-link">Email: ${answers.email}</a></li>
+      <li class="list-group-item"><a href="https://github.com/${answers.gitHub}" class="card-link">GitHub: ${answers.gitHub} </a></li>
+    </ul>
+  </div>
+       
     </body>
     </html>`
     
   };
   
+//   function generateTeamCard(answers) {]
   module.exports = generateIndex;
   
