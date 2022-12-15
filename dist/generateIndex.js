@@ -1,7 +1,7 @@
 // Function generates HTML file
 // https://stackoverflow.com/questions/35803959/template-literals-with-nested-backticks-in-es6
 function generateIndex(answers) {
-    return `<!DOCTYPE html>
+  return `<!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -13,23 +13,47 @@ function generateIndex(answers) {
         <title>Team Profiles</title>
     </head>
     <body>
-    <div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title">${answers.name}</h5>
-      <h3 class="card-text">${answers.role}</h3>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">ID: ${answers.id}</li>
-      <li class="list-group-item"><a href="mailto:${answers.email}" class="card-link">Email: ${answers.email}</a></li>
-      <li class="list-group-item"><a href="https://github.com/${answers.gitHub}" class="card-link">GitHub: ${answers.gitHub} </a></li>
-    </ul>
-  </div>
-       
+    <div class="container">
+      <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">${answers.name}</h5>
+        <h3 class="card-text">${answers.role}</h3>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">ID: ${answers.id}</li>
+        <li class="list-group-item">Email: <a href="mailto:${answers.email}" class="card-link">${answers.email}</a></li>
+        <li class="list-group-item">GitHub: <a href="https://github.com/${answers.gitHub}" class="card-link">${answers.gitHub} </a></li>
+      </ul>
+      </div>
+      </div>
+      <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">${answers.name}</h5>
+        <h3 class="card-text">${answers.role}</h3>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">ID: ${answers.id}</li>
+        <li class="list-group-item">Email: <a href="mailto:${answers.email}" class="card-link">${answers.email}</a></li>
+        <li class="list-group-item">GitHub: <a href="https://github.com/${answers.gitHub}" class="card-link">${answers.gitHub} </a></li>
+      </ul>
+      </div>
+      </div>
+      <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">${answers.name}</h5>
+        <h3 class="card-text">${answers.role}</h3>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">ID: ${answers.id}</li>
+        <li class="list-group-item">Email: <a href="mailto:${answers.email}" class="card-link">${answers.email}</a></li>
+        <li class="list-group-item">GitHub: <a href="https://github.com/${answers.gitHub}" class="card-link">${answers.gitHub} </a></li>
+      </ul>
+      </div>
+    </div>   
     </body>
     </html>`
-    
-  };
-  
+
+};
+
 //   function generateTeamCard(answers) {]
-  module.exports = generateIndex;
-  
+module.exports = generateIndex;
