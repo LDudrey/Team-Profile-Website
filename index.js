@@ -220,12 +220,12 @@ function generateIndex(answers) {
     if (answers[i].getRole() === 'Manager') {
       const card = `
 <div class="col">
-  <div class="card shadow p-3 mb-5 bg-body rounded" style="width: 18rem;">
+  <div class="card shadow mb-5 bg-body rounded" style="width: 18rem;">
     <div class="card-body" style="background-color: #0d6efd">
       <h3 class="card-title">${answers[i].name}</h3>
       <h5 class="card-text">Manager</h5>
     </div>
-    <ul class="list-group list-group-flush p-4" style="background-color: #ebebeb;">
+    <ul class="list-group list-group-flush p-4" style="background-color: #f7f7f7;">
       <li class="list-group-item">ID: ${answers[i].id}</li>
       <li class="list-group-item">Email: <a href="mailto:${answers[i].email}" class="card-link">${answers[i].email}</a></li>
       <li class="list-group-item">Office number: ${answers[i].officeNumber}</li>
@@ -237,12 +237,12 @@ function generateIndex(answers) {
     } else if (answers[i].getRole() === 'Engineer') {
       const card = `
 <div class="col">
-  <div class="card shadow p-3 mb-5 bg-body rounded" style="width: 18rem;">
+  <div class="card shadow mb-5 bg-body rounded" style="width: 18rem;">
     <div class="card-body" style="background-color: #0d6efd">
       <h3 class="card-title">${answers[i].name}</h3>
       <h5 class="card-text">Engineer</h5>
     </div>
-    <ul class="list-group list-group-flush p-4" style="background-color: #ebebeb;">
+    <ul class="list-group list-group-flush p-4" style="background-color: #f7f7f7;">
       <li class="list-group-item">ID: ${answers[i].id}</li>
       <li class="list-group-item">Email: <a href="mailto:${answers[i].email}" class="card-link">${answers[i].email}</a></li>
       <li class="list-group-item">GitHub:<a href="https://github.com/${answers[i].gitHub}">${answers[i].gitHub}</a></li>
@@ -254,12 +254,12 @@ function generateIndex(answers) {
     } else if (answers[i].getRole() === 'Intern') {
       const card = `
 <div class="col">
-  <div class="card shadow p-3 mb-5 bg-body rounded" style="width: 18rem;">
+  <div class="card shadow mb-5 bg-body rounded" style="width: 18rem;">
     <div class="card-body" style="background-color: #0d6efd">
       <h3 class="card-title">${answers[i].name}</h3>
       <h5 class="card-text">Intern</h5>
     </div>
-    <ul class="list-group list-group-flush p-4" style="background-color: #ebebeb;">
+    <ul class="list-group list-group-flush p-4" style="background-color: #f7f7f7;">
       <li class="list-group-item">ID: ${answers[i].id}</li>
       <li class="list-group-item">Email: <a href="mailto:${answers[i].email}" class="card-link">${answers[i].email}</a></li>
       <li class="list-group-item">School: ${answers[i].school}</li>
@@ -286,14 +286,15 @@ function generateIndex(answers) {
 </head>
 
 <body>
-<div class="row" style="background-color: #dc3545;">
+<div class="container-fluid p-5" style="background-color: #dc3545;">
 <h1>My Team</h1>
 </div>
   <div class="container p-5">
     <div class="row">${joinedCards}
       </div>
     </div>   
-  </body>
+</body>
+
 </html>
 `
   return html;
