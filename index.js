@@ -45,7 +45,7 @@ inquirer.prompt([
     },
     {
       type: 'input',
-      name: 'office',
+      name: 'officeNumber',
       message: 'What is the Team Managers office number?',
       //   validate(answer) {
       //     if(!answer) {
@@ -60,7 +60,7 @@ inquirer.prompt([
       answers.name,
       answers.id,
       answers.email,
-      answers.office,
+      answers.officeNumber,
     )
     employees.push(newManager);
     addEmployee();
@@ -125,7 +125,7 @@ function addEngineer() {
     },
     {
       type: 'input',
-      name: 'github',
+      name: 'gitHub',
       message: 'What is the Engineers GitHub profile name?',
       //   validate(answer) {
       //     if(!answer) {
@@ -140,7 +140,7 @@ function addEngineer() {
         answers.name,
         answers.id,
         answers.email,
-        answers.github,
+        answers.gitHub,
       )
       employees.push(newEngineer);
       addEmployee();
@@ -152,10 +152,10 @@ function addIntern() {
     {
       type: 'input',
       name: 'name',
-      message: 'What is the Intern name?',
+      message: 'What is the Interns name?',
       //   validate(answer) {
       //     if(!answer) {
-      //         return "Please, enter the Engineers name!"
+      //         return "Please, enter the Intern name!"
       //     }
       //     return true
       // }
@@ -163,10 +163,10 @@ function addIntern() {
     {
       type: 'number',
       name: 'id',
-      message: 'What is the Intern id number?',
+      message: 'What is the Interns id number?',
       //   validate(answer) {
       //     if(!answer) {
-      //         return "Please, enter the Engineers employee ID number!"
+      //         return "Please, enter the Intern employee ID number!"
       //     }
       //     return true
       // }
@@ -174,21 +174,21 @@ function addIntern() {
     {
       type: 'input',
       name: 'email',
-      message: 'What is the Intern email address?',
+      message: 'What is the Interns email address?',
       //   validate(answer) {
       //     if(!answer) {
-      //         return "Please, enter the Engineers email address!"
+      //         return "Please, enter the Intern email address!"
       //     }
       //     return true
       // }
     },
     {
       type: 'input',
-      name: 'github',
-      message: 'What is the Intern School name?',
+      name: 'school',
+      message: 'What is the Interns School name?',
       //   validate(answer) {
       //     if(!answer) {
-      //         return "Please, enter the Engineers GitHub profile name!"
+      //         return "Please, enter the Intern School name!"
       //     }
       //     return true
       // }
@@ -222,12 +222,12 @@ function generateIndex(answers) {
       <div class="card" style="width: 18rem;">
       <div class="card-body">
         <h5 class="card-title">${answers[i].name}</h5>
-        <h3 class="card-text">${answers[i].role}</h3>
+        <h3 class="card-text">Manager</h3>
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">ID: ${answers[i].id}</li>
-        <li class="list-group-item">Email: <a href="mailto:${answers[i].email}" class="card-link">${answers[0].email}</a></li>
-        <li class="list-group-item">Office number: ${answers[i].office}</li>
+        <li class="list-group-item">Email: <a href="mailto:${answers[i].email}" class="card-link">${answers[i].email}</a></li>
+        <li class="list-group-item">Office number: ${answers[i].officeNumber}</li>
       </ul>
       </div>
       </div>
@@ -238,27 +238,27 @@ function generateIndex(answers) {
       <div class="card" style="width: 18rem;">
       <div class="card-body">
         <h5 class="card-title">${answers[i].name}</h5>
-        <h3 class="card-text">${answers[i].role}</h3>
+        <h3 class="card-text">Engineer</h3>
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">ID: ${answers[i].id}</li>
-        <li class="list-group-item">Email: <a href="mailto:${answers[i].email}" class="card-link">${answers[0].email}</a></li>
-        <li class="list-group-item">GitHub: ${answers[i].github}</li>
+        <li class="list-group-item">Email: <a href="mailto:${answers[i].email}" class="card-link">${answers[i].email}</a></li>
+        <li class="list-group-item">GitHub: ${answers[i].gitHub}</li>
       </ul>
       </div>
       </div>
       `
       cards.push(card)
-    } else (answers[i].getRole() === 'Intern') {
+    } else if (answers[i].getRole() === 'Intern') {
       const card = `
       <div class="card" style="width: 18rem;">
       <div class="card-body">
         <h5 class="card-title">${answers[i].name}</h5>
-        <h3 class="card-text">${answers[i].role}</h3>
+        <h3 class="card-text">Intern</h3>
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">ID: ${answers[i].id}</li>
-        <li class="list-group-item">Email: <a href="mailto:${answers[i].email}" class="card-link">${answers[0].email}</a></li>
+        <li class="list-group-item">Email: <a href="mailto:${answers[i].email}" class="card-link">${answers[i].email}</a></li>
         <li class="list-group-item">School: ${answers[i].school}</li>
       </ul>
       </div>
