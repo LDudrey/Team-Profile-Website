@@ -5,43 +5,68 @@ const Employee = require("./lib/Employee");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
+const employees = [];
 
-
-inquirer
-  .prompt([
+function addManager() {}
+inquirer.prompt([
     {
       type: 'input',
       name: 'name',
       message: 'What is the Team Managers name?',
-      validate(answer) {
-        if(!answer) {
-            return "Please, enter the Managers name!"
-        }
-        return true
-    }
+      //   validate(answer) {
+      //     if(!answer) {
+      //         return "Please, enter the Managers name!"
+      //     }
+      //     return true
+      // }
     },
     {
       type: 'number',
       name: 'id',
       message: 'What is the Team Managers id number?',
-      validate(answer) {
-        if(!answer) {
-            return "Please, enter the Managers employee ID number!"
-        }
-        return true
-    }
+      //   validate(answer) {
+      //     if(!answer) {
+      //         return "Please, enter the Managers employee ID number!"
+      //     }
+      //     return true
+      // }
     },
     {
       type: 'input',
       name: 'email',
       message: 'What is the Team Managers email address?',
-      validate(answer) {
-        if(!answer) {
-            return "Please, enter the Managers email address!"
-        }
-        return true
-    }
+      //   validate(answer) {
+      //     if(!answer) {
+      //         return "Please, enter the Managers email address!"
+      //     }
+      //     return true
+      // }
     },
+    {
+      type: 'input',
+      name: 'office',
+      message: 'What is the Team Managers office number?',
+      //   validate(answer) {
+      //     if(!answer) {
+      //         return "Please, enter the Managers office number!"
+      //     }
+      //     return true
+      // }
+    },
+  ])
+  .then(answers => {
+    const newManager = new Manager(
+      answers.name,
+      answers.id,
+      answers.email,
+      answers.office,
+    )
+    employees.push(newManager)
+    addEmployee()
+  });
+
+function addEmployee() {
+  inquirer.prompt([
     {
       type: 'list',
       name: 'team',
@@ -49,39 +74,89 @@ inquirer
       choices: ['Engineer',
         'Intern',
         'Done entering Team Members.'
-      ]
+      ],
+    },
+  ]).then(answers => {
+    if (answers.team === 'Engineer') {
+      addEngineer();
+    } else if (answers.team === 'Intern') {
+      addIntern();
+    } else {
+      createPage();
+    }
+  })
+};
+
+function addEngineer() {
+  inquirer.prompt([
+    {
+      type: 'input',
+      name: 'name',
+      message: 'What is the Engineers name?',
+      //   validate(answer) {
+      //     if(!answer) {
+      //         return "Please, enter the Managers name!"
+      //     }
+      //     return true
+      // }
+    },
+    {
+      type: 'number',
+      name: 'id',
+      message: 'What is the Engineers id number?',
+      //   validate(answer) {
+      //     if(!answer) {
+      //         return "Please, enter the Managers employee ID number!"
+      //     }
+      //     return true
+      // }
+    },
+    {
+      type: 'input',
+      name: 'email',
+      message: 'What is the Engineers email address?',
+      //   validate(answer) {
+      //     if(!answer) {
+      //         return "Please, enter the Managers email address!"
+      //     }
+      //     return true
+      // }
     },
   ])
-  .then(answers => {
-    const htmlContent = generateIndex(answers);
-    fs.writeFile('./dist/index.html', htmlContent, (err) =>
-      err ? console.log(err) : console.log('Success!'))
-  })
-  .catch((error) => {
-    if (error.isTtyError) {
-      // Prompt couldn't be rendered in the current environment
-    } else {
-      // Something else went wrong
-    }
-  });
+    .then(answers => {
+      addIntern()
+    })
+};
 
-// function writeToFile(answers) {
-//     const readMeContent = generate(answers);
-//     fs.writeFile('./dist/index.html', readMeContent, (err) =>
-//         err ? console.log(err) : console.log('Success!'))
-// };
-
-// function init() {
-//     inquirer.prompt(questions).then((answers) => 
-//     writeToFile(answers));
-// };
-
-// init();
+function createPage() {
+  const htmlContent = generateIndex(employees);
+  fs.writeFile('./dist/index.html', htmlContent, (err) =>
+    err ? console.log(err) : console.log('Success!'))
+}
 
 // Function generates HTML file
 // https://stackoverflow.com/questions/35803959/template-literals-with-nested-backticks-in-es6
 function generateIndex(answers) {
-  return `<!DOCTYPE html>
+  const cards = [];
+  for (let i = 0; i < answers.length; i++) {
+    if (answers[i].getRole() === 'Manager') {
+      const card = `
+      <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">${answers[0].name}</h5>
+        <h3 class="card-text">${answers[0].role}</h3>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">ID: ${answers[0].id}</li>
+        <li class="list-group-item">Email: <a href="mailto:${answers[0].email}" class="card-link">${answers[0].email}</a></li>
+      </ul>
+      </div>
+      </div>
+      `
+      cards.push(card)
+    }
+  }
+  const html = `<!DOCTYPE html>
       <html lang="en">
       <head>
           <meta charset="UTF-8">
@@ -94,43 +169,10 @@ function generateIndex(answers) {
       </head>
       <body>
       <div class="container">
-        <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">${answers.name}</h5>
-          <h3 class="card-text">${answers.role}</h3>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">ID: ${answers.id}</li>
-          <li class="list-group-item">Email: <a href="mailto:${answers.email}" class="card-link">${answers.email}</a></li>
-          <li class="list-group-item">GitHub: <a href="https://github.com/${answers.gitHub}" class="card-link">${answers.gitHub} </a></li>
-        </ul>
-        </div>
-        </div>
-        <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">${answers.name}</h5>
-          <h3 class="card-text">${answers.role}</h3>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">ID: ${answers.id}</li>
-          <li class="list-group-item">Email: <a href="mailto:${answers.email}" class="card-link">${answers.email}</a></li>
-          <li class="list-group-item">GitHub: <a href="https://github.com/${answers.gitHub}" class="card-link">${answers.gitHub} </a></li>
-        </ul>
-        </div>
-        </div>
-        <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">${answers.name}</h5>
-          <h3 class="card-text">${answers.role}</h3>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">ID: ${answers.id}</li>
-          <li class="list-group-item">Email: <a href="mailto:${answers.email}" class="card-link">${answers.email}</a></li>
-          <li class="list-group-item">GitHub: <a href="https://github.com/${answers.gitHub}" class="card-link">${answers.gitHub} </a></li>
-        </ul>
-        </div>
+      ${cards}
+        
       </div>   
       </body>
       </html>`
-
+  return html;
 };
