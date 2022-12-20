@@ -5,7 +5,6 @@ const Employee = require("./lib/Employee");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
-const { inherits } = require('util');
 const employees = [];
 
 function addManager() { }
@@ -14,45 +13,45 @@ inquirer.prompt([
     type: 'input',
     name: 'name',
     message: 'What is the Team Managers name?',
-    //   validate(answer) {
-    //     if(!answer) {
-    //         return "Please, enter the Managers name!"
-    //     }
-    //     return true
-    // }
+      validate(answer) {
+        if(!answer) {
+            return "Please, enter the Managers name!"
+        }
+        return true
+    }
   },
   {
     type: 'number',
     name: 'id',
     message: 'What is the Team Managers id number?',
-    //   validate(answer) {
-    //     if(!answer) {
-    //         return "Please, enter the Managers employee ID number!"
-    //     }
-    //     return true
-    // }
+      validate(answer) {
+        if(!answer) {
+            return "Please, enter the Managers employee ID number!"
+        }
+        return true
+    }
   },
   {
     type: 'input',
     name: 'email',
     message: 'What is the Team Managers email address?',
-    //   validate(answer) {
-    //     if(!answer) {
-    //         return "Please, enter the Managers email address!"
-    //     }
-    //     return true
-    // }
+      validate(answer) {
+        if(!answer) {
+            return "Please, enter the Managers email address!"
+        }
+        return true
+    }
   },
   {
     type: 'input',
     name: 'officeNumber',
     message: 'What is the Team Managers office number?',
-    //   validate(answer) {
-    //     if(!answer) {
-    //         return "Please, enter the Managers office number!"
-    //     }
-    //     return true
-    // }
+      validate(answer) {
+        if(!answer) {
+            return "Please, enter the Managers office number!"
+        }
+        return true
+    }
   },
 ])
   .then(answers => {
@@ -94,45 +93,45 @@ function addEngineer() {
       type: 'input',
       name: 'name',
       message: 'What is the Engineers name?',
-      //   validate(answer) {
-      //     if(!answer) {
-      //         return "Please, enter the Engineers name!"
-      //     }
-      //     return true
-      // }
+        validate(answer) {
+          if(!answer) {
+              return "Please, enter the Engineers name!"
+          }
+          return true
+      }
     },
     {
       type: 'number',
       name: 'id',
       message: 'What is the Engineers id number?',
-      //   validate(answer) {
-      //     if(!answer) {
-      //         return "Please, enter the Engineers employee ID number!"
-      //     }
-      //     return true
-      // }
+        validate(answer) {
+          if(!answer) {
+              return "Please, enter the Engineers employee ID number!"
+          }
+          return true
+      }
     },
     {
       type: 'input',
       name: 'email',
       message: 'What is the Engineers email address?',
-      //   validate(answer) {
-      //     if(!answer) {
-      //         return "Please, enter the Engineers email address!"
-      //     }
-      //     return true
-      // }
+        validate(answer) {
+          if(!answer) {
+              return "Please, enter the Engineers email address!"
+          }
+          return true
+      }
     },
     {
       type: 'input',
       name: 'gitHub',
       message: 'What is the Engineers GitHub profile name?',
-      //   validate(answer) {
-      //     if(!answer) {
-      //         return "Please, enter the Engineers GitHub profile name!"
-      //     }
-      //     return true
-      // }
+        validate(answer) {
+          if(!answer) {
+              return "Please, enter the Engineers GitHub profile name!"
+          }
+          return true
+      }
     },
   ])
     .then(answers => {
@@ -153,45 +152,45 @@ function addIntern() {
       type: 'input',
       name: 'name',
       message: 'What is the Interns name?',
-      //   validate(answer) {
-      //     if(!answer) {
-      //         return "Please, enter the Intern name!"
-      //     }
-      //     return true
-      // }
+        validate(answer) {
+          if(!answer) {
+              return "Please, enter the Intern name!"
+          }
+          return true
+      }
     },
     {
       type: 'number',
       name: 'id',
       message: 'What is the Interns id number?',
-      //   validate(answer) {
-      //     if(!answer) {
-      //         return "Please, enter the Intern employee ID number!"
-      //     }
-      //     return true
-      // }
+        validate(answer) {
+          if(!answer) {
+              return "Please, enter the Intern employee ID number!"
+          }
+          return true
+      }
     },
     {
       type: 'input',
       name: 'email',
       message: 'What is the Interns email address?',
-      //   validate(answer) {
-      //     if(!answer) {
-      //         return "Please, enter the Intern email address!"
-      //     }
-      //     return true
-      // }
+        validate(answer) {
+          if(!answer) {
+              return "Please, enter the Intern email address!"
+          }
+          return true
+      }
     },
     {
       type: 'input',
       name: 'school',
       message: 'What is the Interns School name?',
-      //   validate(answer) {
-      //     if(!answer) {
-      //         return "Please, enter the Intern School name!"
-      //     }
-      //     return true
-      // }
+        validate(answer) {
+          if(!answer) {
+              return "Please, enter the Intern School name!"
+          }
+          return true
+      }
     },
   ])
     .then(answers => {
