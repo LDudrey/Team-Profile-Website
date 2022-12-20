@@ -1,5 +1,5 @@
 // https://www.stanleyulili.com/node/node-modules-import-and-use-functions-from-another-file/
-const inquirer = require('./util/node_modules/inquirer');
+const inquirer = require('./node_modules/inquirer');
 const fs = require('fs');
 const Employee = require("./lib/Employee");
 const Manager = require("./lib/Manager");
