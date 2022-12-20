@@ -1,9 +1,7 @@
 # Team-Profile-Website
     
   ## Description
-  
-
-  ## License
+  This application creates a team profile website simply from user input at the Command Line Interface(CLI) using Inquirer. 
   
   [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
   
@@ -27,9 +25,9 @@
   
   ## Usage
   
-  The following video shows a demostration of application usage.
+  The following video shows a demostration of application usage and jest testing.
 
-  [Video Demostration](https://drive.google.com/file/d/1jG7y9ueVBCx26Elpeovn6stk6-mIniHu/view?usp=share_link)
+  [Video Demostration](https://drive.google.com/file/d/1d9eL1v8IaEl7Ff7rPnRU1vG-VNYy-JOP/view?usp=share_link)
 
   ## Tests
   
